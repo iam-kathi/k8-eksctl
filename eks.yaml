@@ -4,13 +4,18 @@ kind: ClusterConfig
 metadata:
   name: expense
   region: us-east-1
+  version: "1.32"
+
+autoModeConfig:
+  enabled: false
 
 managedNodeGroups:
-  - name: expense
+  - name: expense-ng
     instanceTypes:
-      - m5.large
-      - m5a.large
-      - m4.large
-      - t3.large
+      - t3.small
+      - t3a.small
+      - t3.medium
     desiredCapacity: 3
+    minSize: 3
+    maxSize: 3
     spot: true
